@@ -1,0 +1,155 @@
+@use "../abstracts" as *;
+
+.feature {
+  position: relative;
+  background-color: var(--accent-color);
+  color: var(--black-color);
+
+  &__decor {
+    background: url("../images/decor/feature-top.png") center/cover no-repeat;
+    height: 70px;
+  }
+
+  &__inner {
+    padding-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 32px;
+    row-gap: 40px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+  }
+
+  &__img {
+    @include tablet {
+      width: 460px;
+    }
+  }
+
+  &__partners {
+    display: flex;
+    gap: 25px;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mobile {
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+
+  &__logo {
+    &--hp {
+      @include mobile {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    &--cross {
+      @include mobile {
+        width: 50px;
+        height: 10px;
+      }
+    }
+
+    &--cyberpunk {
+      @include mobile {
+        width: 175px;
+        height: 44px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    @include tablet {
+      max-width: 460px;
+    }
+
+    @include mobile {
+      max-width: 296px;
+    }
+  }
+
+  &__title {
+    max-width: 560px;
+  }
+
+  &__desc {
+    max-width: 624px;
+    line-height: 1.89;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 42px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      padding-left: 50px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @include mobile-s {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &--colors::before {
+      background-image: url("../images/decor/feature-color.svg");
+    }
+
+    &--image::before {
+      background-image: url("../images/decor/feature-image.svg");
+    }
+
+    &--motion::before {
+      background-image: url("../images/decor/feature-motion.svg");
+    }
+  }
+
+  &__button {
+    align-self: flex-start;
+  }
+
+}

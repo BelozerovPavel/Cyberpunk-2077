@@ -1,0 +1,249 @@
+@use "../abstracts" as *;
+
+.promo {
+  position: relative;
+  background-color: var(--black-color);
+  color: var(--white-color);
+
+  &__decor {
+    background: url("../images/decor/promo-top.png") center/cover no-repeat;
+    height: 70px;
+  }
+
+  &__inner {
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    grid-template-areas:
+      "header header"
+      "form media";
+    column-gap: 32px;
+
+    @include tablet {
+      grid-template-columns: minmax(320px, 460px) minmax(320px, 460px);
+      grid-template-areas:
+        "header media"
+        "form media";
+      justify-content: space-between;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+      "badge"
+      "media"
+      "title"
+      "desc"
+      "form";
+      row-gap: 25px;
+    }
+  }
+
+  &__header {
+    grid-area: header;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "badge title"
+      "desc desc";
+    column-gap: 32px;
+    row-gap: 25px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "badge"
+        "title"
+        "desc";
+    }
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__badge {
+    grid-area: badge;
+    width: 132px;
+    height: 132px;
+    flex-shrink: 0;
+
+    @include mobile {
+      width: 82px;
+      height: 82px;
+    }
+
+    @include mobile-s {
+      width: 62px;
+      height: 62px;
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    align-self: center;
+  }
+
+  &__desc {
+    grid-area: desc;
+    max-width: 952px;
+    line-height: 1.9;
+
+    @include mobile {
+      margin-bottom: 45px;
+    }
+  }
+
+  &__form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    font-weight: 300;
+  }
+
+  &__field {
+    display: block;
+  }
+
+  &__input {
+    margin-bottom: 35px;
+    width: 100%;
+    padding-bottom: 13px;
+    border: none;
+    border-bottom: 1px solid var(--grey-color);
+    background-color: transparent;
+    color: var(--white-color);
+    font-weight: 300;
+    outline: none;
+
+    @include fluid-font(18, 16);
+
+    &::placeholder {
+      color: var(--white-color);
+    }
+  }
+
+  &__upload {
+    margin-bottom: 35px;
+    min-height: 120px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed var(--grey-color);
+    cursor: pointer;
+    
+    &-text {
+      text-decoration: underline;
+
+      @include fluid-font(18, 16)
+    }
+
+    &-format {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    margin-bottom: 15px;
+    align-self: flex-start;
+  }
+
+  &__media {
+    grid-area: media;
+    min-height: 456px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 32px;
+
+    @include tablet {
+      min-height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    @include mobile {
+      min-height: auto;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  
+  &__img {
+    position: relative;
+    z-index: 0;
+
+    &::before {
+      content: "";
+      width: 460px;
+      height: 456px;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      z-index: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @include desktop {
+        width: 400px;
+        height: 400px;
+      }
+
+      @include tablet {
+        width: clamp(340px, 45vw, 460px);
+        height: clamp(337px, 44.6vw, 456px);
+      }
+
+      @include mobile {
+        width: clamp(132px, 45vw, 300px);
+        height: clamp(130px, 44.6vw, 356px);
+      }
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+
+      @include tablet {
+        width: clamp(220px, 29vw, 296px);
+        height: auto;
+      }
+
+      @include mobile {
+        width: clamp(84px, 29vw, 296px);
+      }
+    }
+
+    &--xbox {
+      z-index: 1;
+      &::before {
+        transform: translate(-67%, -8%);
+        background-image: url("../images/decor/flash-yellow.png");
+
+        @include mobile {
+          transform: translate(-65%, -8%);
+        }
+      }
+    }
+
+    &--ps5 {
+      &::before {
+        transform: translate(-65%, -8%);
+        z-index: 0;
+        background-image: url("../images/decor/flash-blue.png");
+
+        @include mobile {
+          transform: translate(-55%, -10%);
+        }
+      }
+    }
+  }
+}

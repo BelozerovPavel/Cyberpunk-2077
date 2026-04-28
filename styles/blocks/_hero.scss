@@ -1,0 +1,57 @@
+@use "../abstracts" as *;
+
+.hero {
+  min-height: 120svh;
+  margin-bottom: 70px;
+  background: url("../images/content/background-main.jpg") center/cover no-repeat;
+
+   @include mobile-s {
+    min-height: 110svh;
+  }
+
+  &__inner {
+    min-height: 120svh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+   @include mobile-s {
+    min-height: 110svh;
+   }
+  }
+
+  &__content {
+    position: relative;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    max-width: 624px;
+    background-color: var(--accent-color);
+    clip-path: polygon(8% 0, 100% 0, 100% 84%, 92% 100%, 0 100%, 0 16%);
+
+    @include mobile {
+      padding: 30px 13px;
+      max-width: 320px;
+      text-align: center;
+    }
+  }
+
+  &__button {
+    min-width: 272px;
+    height: 78px;
+    align-self: flex-start;
+
+    @include fluid-font(24, 20);
+
+    @include mobile {
+      align-self: stretch;
+    }
+  }
+}
+
+.hero .container {
+  @include mobile-s {
+    padding-inline: 0;
+  }
+}

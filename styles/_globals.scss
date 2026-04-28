@@ -1,0 +1,27 @@
+@use "abstracts" as *;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--white-color);
+  color: var(--black-color);
+
+  @include fluid-font(18, 16);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+h2 {
+  font-family: var(--font-family-accent);
+  font-weight: 400;
+  line-height: 1;
+  @include fluid-font(62, 30);
+}

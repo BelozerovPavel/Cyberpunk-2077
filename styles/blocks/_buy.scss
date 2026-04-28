@@ -1,0 +1,119 @@
+@use "../abstracts" as *;
+
+.buy {
+  position: relative;
+
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__image {
+    min-height: 717px;
+    background: url("../images/content/buy/bg-buy.jpg") center/cover no-repeat;
+
+    @include mobile {
+      min-height: 320px;
+    }
+  }
+
+  &__content {
+    padding: 70px 0 70px 32px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+
+    @include mobile {
+      padding: 40px var(--container-padding-x) 70px var(--container-padding-x);
+    }
+  }
+
+  &__title {
+    margin-bottom: 25px;
+    max-width: 624px;
+  }
+
+  &__subtitle {
+    color: var(--accent-color-alt);
+
+    @include fluid-font(24, 20);
+  }
+
+  &__bundle {
+    max-width: 466px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    @include mobile {
+      row-gap: 20px;
+    }
+
+    &-list {
+      margin-bottom: 70px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+    }
+
+    &-item {
+      position: relative;
+      min-height: 32px;
+      padding-left: 42px;
+      display: flex;
+      align-items: center;
+
+      @include mobile {
+        padding-left: 50px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include mobile-s {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &--disc::before {
+        background-image: url("../images/decor/buy/disk.svg");
+      }
+
+      &--code::before {
+        background-image: url("../images/decor/buy/code.svg");
+      }
+
+      &--guide::before {
+        background-image: url("../images/decor/buy/guide.svg");
+      }
+    }
+  }
+
+  &__platform {
+    max-width: 319px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    &-list {
+      display: grid;
+      grid-template-columns: 62px 178px;
+      align-items: flex-end;
+      row-gap: 47px;
+      column-gap: 50px;
+    }
+  }
+}

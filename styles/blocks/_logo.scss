@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.logo img {
+  transition: var(--transition);
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @include tablet {
+    width: 200px;
+    }
+  }

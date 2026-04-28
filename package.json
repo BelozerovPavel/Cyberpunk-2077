@@ -1,0 +1,11 @@
+{
+  "name": "cyberpunk",
+  "version": "1.0.0",
+  "scripts": {
+    "sass:watch": "sass --watch styles/styles.scss:styles/styles.css"
+  },
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}

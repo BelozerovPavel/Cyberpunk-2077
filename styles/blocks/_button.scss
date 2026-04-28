@@ -1,0 +1,31 @@
+@use "../abstracts" as *;
+
+.button {
+  height: var(--height-btn);
+  min-width: 192px;
+  font-weight: 700;
+  background-color: var(--black-color);
+  color: var(--accent-color);
+  border: none;
+  transition: var(--transition);
+
+  align-items: center;
+  justify-content: center;
+
+  @include fluid-font(18, 16);
+  @include mobile {
+    min-width: 182px;
+  }
+
+  @media (hover:hover) {
+    &:hover {
+      color: var(--accent-color-alt);
+    }
+  }
+}
+
+.button--accent {
+  color: var(--black-color);
+  background-color: var(--accent-color);
+}
+

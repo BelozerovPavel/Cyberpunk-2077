@@ -1,0 +1,27 @@
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+
+  &__box {
+    position: relative;
+    display: inline-flex;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--grey-color);
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-size: 12px;
+    line-height: normal;
+  }
+
+  &__input:checked + &__box::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: url("../images/icons/checkbox-arrow.svg") center/contain no-repeat;
+  }
+}

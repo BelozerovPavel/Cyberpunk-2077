@@ -1,0 +1,84 @@
+@use "../abstracts" as *;
+
+.footer {
+  &__main {
+    padding: 13px 36px;
+    @include mobile {
+      padding: 40px 0 25px 0;
+    }
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include mobile {
+        flex-direction: column;
+        row-gap: 25px;
+      }
+    }
+  }
+
+  &__logos {
+    display: flex;
+    column-gap: 32px;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column;
+      row-gap: 25px;
+    }
+  }
+
+  &__logo {
+    &--cyberpunk {
+      @include mobile-s {
+        width: 200px;
+        height: 50px;
+      }
+    }
+
+    &--cd {
+      @include mobile-s {
+        width: 116px;
+        height: 50px;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    column-gap: 32px;
+
+    @include mobile {
+      padding-block: 25px;
+      width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      flex-direction: column;
+      align-items: center;
+      row-gap: 15px;
+      background: #e5e5e5;
+    }
+  }
+
+  &__link {
+    transition: var(--transition);
+    @include fluid-font(18,16);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__extra {
+    padding-block: 13px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    text-align: center;
+  }
+
+  &__copyright {
+    @include fluid-font(14,12);
+  }
+}
